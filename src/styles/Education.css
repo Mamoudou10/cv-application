@@ -1,0 +1,95 @@
+.education h2 {
+  border-bottom-color: #9b59b6;
+}
+
+.education-item {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid #9b59b6;
+  transition: all 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(155, 89, 182, 0.1);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.education-header h3 {
+  color: #9b59b6;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.education .checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.education .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: normal;
+  color: #9b59b6;
+}
+
+.education .checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #9b59b6;
+}
+
+.education .add-btn {
+  width: 100%;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.education .add-btn:hover {
+  box-shadow: 0 8px 20px rgba(155, 89, 182, 0.3);
+}
+
+.education .form-group input:focus,
+.education .form-group textarea:focus {
+  border-color: #9b59b6;
+  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+}
+
+.education .empty-state {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #9b59b6;
+}
+
+@media (max-width: 768px) {
+  .education-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  
+  .education .checkbox-group {
+    padding-top: 0;
+    justify-content: flex-start;
+  }
+}

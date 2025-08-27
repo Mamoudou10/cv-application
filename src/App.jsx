@@ -1,8 +1,7 @@
-// import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo.jsx";
 import Experience from "./components/Experience.jsx";
-// import {Education} from './components/Education.jsx';
-// import {Skills} from './components/Skills.jsx';
+import Education from "./components/Education.jsx";
+import Skills from './components/Skills.jsx';
 // import {CVPreview} from './components/CVPreview.jsx';
 import "./styles/App.css";
 
@@ -26,9 +25,17 @@ export default function App() {
     setCvData((prev) => ({ ...prev, personalInfo }));
   };
 
- const updateExperiences = (experiences) => {
+  const updateExperiences = (experiences) => {
     setCvData((prev) => ({ ...prev, experiences }));
   };
+
+  const updateEducation = (educations) => {
+    setCvData((prev) => ({ ...prev, educations }));
+  };
+
+  const updateSkills = (skills) => {
+    setCvData((prev) => ({...prev, skills}))
+  }
 
   return (
     <>
@@ -38,6 +45,14 @@ export default function App() {
       </header>
       <PersonalInfo data={cvData.personalInfo} onUpdate={updatePersonalInfo} />
       <Experience data={cvData.experiences} onUpdate={updateExperiences} />
+      <Education 
+        data={cvData.educations}
+        onUpdate={updateEducation}
+      />
+      <Skills 
+        data={cvData.skills}
+        onUpdate={updateSkills}
+      />
     </>
   );
 }
