@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef } from "react";
 import "../styles/PersonalInfo.css"
 
 
@@ -11,6 +11,14 @@ export default function PersonalInfo({ data = {}, onUpdate }) {
     address: '',
     summary: '',
     ...data
+  };
+  const fileInputRef = useRef(null);
+  const handlePhotoChange = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => onUpdate({ ...data, photo: reader.result });
+    reader.readAsDataURL(file);
   };
     const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +40,21 @@ export default function PersonalInfo({ data = {}, onUpdate }) {
             placeholder="Ex: Aboubakry Diallo"
             required
           />
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group half">
+          <label>Photo de profil</label>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {data.photo ? (
+              <img src={data.photo} alt="Profil" style={{ width: 56, height: 56, borderRadius: '50%', objectFit: 'cover', border: '1px solid #e5e7eb' }} />
+            ) : null}
+            <div>
+              <input ref={fileInputRef} type="file" accept="image/*" onChange={handlePhotoChange} />
+            </div>
+          </div>
+          <small style={{ color: '#6b7280' }}>PNG/JPG, carré recommandé, ~120×120.</small>
         </div>
       </div>
 

@@ -9,6 +9,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+@media (max-width: 640px) {
+  .cv-document { padding: 20px; max-width: 100%; }
+}
+
 /* Bouton télécharger */
 .cv-actions {
   margin-bottom: 20px;
@@ -34,10 +38,21 @@
 /* Document CV */
 .cv-document {
   background: white;
-  width: 800px;
+  width: 794px; /* A4 width at ~96 DPI to avoid clipping in PDF */
+  max-width: 100%;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve PDF pagination */
+#cv-document, #cv-document * {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.cv-section, .cv-header, .cv-experience-item, .cv-education-item {
+  page-break-inside: avoid;
 }
 
 /* En-tête */

@@ -1,4 +1,4 @@
-import "../styles/Experience.css";
+import "../styles/Experience.css"
 
 export default function Experience({ data, onUpdate }) {
   const addExperience = () => {
@@ -75,18 +75,7 @@ export default function Experience({ data, onUpdate }) {
             </div>
           </div>
 
-          <div className="form-row">
-            <label>Poste *</label>
-            <input
-              type="text"
-              value={experience.position}
-              onChange={(e) =>
-                updateExperience(experience.id, "position", e.target.value)
-              }
-              placeholder="Ex: Développeur Full Stack"
-              required
-            />
-          </div>
+          
 
           <div className="form-row">
             <div className="form-group third">

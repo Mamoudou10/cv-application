@@ -1,5 +1,5 @@
 .skills h2 {
-  border-bottom-color: #1abc9c;
+  border-bottom-color: var(--primary);
 }
 
 .add-skill-section {
@@ -7,7 +7,7 @@
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
-  border-left: 4px solid #1abc9c;
+  border-left: 4px solid var(--primary);
 }
 
 .level-group {
@@ -15,12 +15,12 @@
 }
 
 .add-skill-btn {
-  background: linear-gradient(135deg, #1abc9c, #16a085);
+  background: var(--primary);
   margin-top: 15px;
 }
 
 .add-skill-btn:hover:not(:disabled) {
-  box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
 .add-skill-btn:disabled {
@@ -49,8 +49,8 @@
 
 .skill-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(26, 188, 156, 0.1);
-  border-color: #1abc9c;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.12);
+  border-color: var(--primary);
 }
 
 .skill-info {
@@ -112,8 +112,8 @@
 
 .skills .form-group input:focus,
 .skills .form-group select:focus {
-  border-color: #1abc9c;
-  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .skills .empty-state {
@@ -124,7 +124,7 @@
   padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #1abc9c;
+  border-left: 4px solid var(--primary);
 }
 
 @media (max-width: 768px) {

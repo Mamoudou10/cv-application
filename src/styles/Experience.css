@@ -1,5 +1,5 @@
 .experience h2 {
-  border-bottom-color: #f39c12;
+  border-bottom-color: var(--primary);
 }
 
 .empty-state {
@@ -10,7 +10,7 @@
   padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #f39c12;
+  border-left: 4px solid var(--primary);
 }
 
 .experience-item {
@@ -18,13 +18,13 @@
   padding: 25px;
   border-radius: 12px;
   margin-bottom: 20px;
-  border-left: 4px solid #f39c12;
+  border-left: 4px solid var(--primary);
   transition: all 0.3s ease;
 }
 
 .experience-item:hover {
   transform: translateX(5px);
-  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.1);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.12);
 }
 
 .experience-header {
@@ -37,7 +37,7 @@
 }
 
 .experience-header h3 {
-  color: #f39c12;
+  color: var(--primary);
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
@@ -66,29 +66,29 @@
   gap: 8px;
   cursor: pointer;
   font-weight: normal;
-  color: #f39c12;
+  color: var(--primary);
 }
 
 .checkbox-group input[type="checkbox"] {
   width: auto;
   margin: 0;
-  accent-color: #f39c12;
+  accent-color: var(--primary);
 }
 
 .add-btn {
   width: 100%;
   margin-top: 10px;
-  background: linear-gradient(135deg, #f39c12, #e67e22);
+  background: var(--primary);
 }
 
 .add-btn:hover {
-  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
 .experience .form-group input:focus,
 .experience .form-group textarea:focus {
-  border-color: #f39c12;
-  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 @media (max-width: 768px) {

@@ -21,7 +21,7 @@ export default function Education({ data = [], onUpdate }) {
 
   const updateEducation = (id, field, value) => {
     onUpdate(
-      data.map((edu) => (edu.id === id ? { ...edu, [field]: value } : exp))
+      data.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu))
     );
   };
 
