@@ -2,7 +2,7 @@ import PersonalInfo from "./components/PersonalInfo.jsx";
 import Experience from "./components/Experience.jsx";
 import Education from "./components/Education.jsx";
 import Skills from './components/Skills.jsx';
-// import {CVPreview} from './components/CVPreview.jsx';
+import CVPreview from './components/CVPreview.jsx';
 import "./styles/App.css";
 
 import { useState } from "react";
@@ -37,6 +37,7 @@ export default function App() {
     setCvData((prev) => ({...prev, skills}))
   }
 
+
   return (
     <>
       <header className="app-header">
@@ -52,6 +53,9 @@ export default function App() {
       <Skills 
         data={cvData.skills}
         onUpdate={updateSkills}
+      />
+      <CVPreview 
+        data={cvData}
       />
     </>
   );
