@@ -13,6 +13,17 @@ Application React pour créer un CV moderne pas à pas et l’exporter en PDF.
 - Node.js 18+ recommandé
 
 ### Installation
+
+Clonez ce dépôt sur votre machine locale :
+
+```bash
+git https://github.com/Mamoudou10/cv-application.git
+```
+
+```bash
+cd cv-application
+```
+
 ```bash
 npm install
 ```
@@ -52,6 +63,10 @@ src/
     CVPreview.jsx
   styles/
 ```
+
+## 👤 Auteur
+
+[Mamoudou Adama Ba](https://github.com/Mamoudou10)
 
 ### Licence
 Projet à usage éducatif. Adaptez librement selon vos besoins.
