@@ -85,3 +85,11 @@ textarea {
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .form-card h2 { font-size: 1.3rem; }
+  .form-group input, .form-group textarea { font-size: 0.95rem; }
+  
+  /* Mobile photo upload */
+  .form-group input[type="file"] { font-size: 0.85rem; }
+}

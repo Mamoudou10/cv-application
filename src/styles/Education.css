@@ -93,3 +93,12 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 480px) {
+  .education-item { padding: 20px; }
+  .education-header h3 { font-size: 1.1rem; }
+  
+  /* Force mobile layout for education */
+  .education-header { flex-direction: column !important; align-items: stretch !important; }
+  .education .checkbox-group { justify-content: flex-start !important; padding-top: 0 !important; }
+}

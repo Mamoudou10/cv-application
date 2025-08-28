@@ -112,3 +112,12 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 480px) {
+  .experience-item { padding: 20px; }
+  .experience-header h3 { font-size: 1.1rem; }
+  
+  /* Force mobile layout for experience */
+  .experience-header { flex-direction: column !important; align-items: stretch !important; }
+  .checkbox-group { justify-content: flex-start !important; padding-top: 0 !important; }
+}

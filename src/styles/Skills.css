@@ -149,3 +149,16 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .skill-item { padding: 15px; }
+  .skill-name { font-size: 1rem; }
+  .skill-level-select { font-size: 0.85rem; }
+  .skill-bars { gap: 2px; }
+  .skill-bar { width: 12px; height: 12px; }
+  
+  /* Force mobile layout for skills */
+  .skill-item { flex-direction: column !important; align-items: stretch !important; }
+  .skill-visual { flex-direction: row !important; justify-content: space-between !important; }
+  .level-group { min-width: auto !important; }
+}

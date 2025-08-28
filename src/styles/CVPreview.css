@@ -13,6 +13,21 @@
   .cv-document { padding: 20px; max-width: 100%; }
 }
 
+@media (max-width: 480px) {
+  .cv-preview { padding: 10px; }
+  .cv-document { padding: 15px; width: 100% !important; max-width: 100% !important; }
+  .cv-name { font-size: 1.5rem; }
+  .cv-contact { gap: 8px; font-size: 0.85rem; flex-direction: column; align-items: flex-start; }
+  .cv-section-title { font-size: 1rem; }
+  .cv-experience-header, .cv-education-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .cv-skills { gap: 8px; }
+  .cv-skill-item { padding: 4px 8px; font-size: 0.85rem; }
+  
+  /* Force mobile layout for CV */
+  .cv-contact .contact-item { width: 100%; }
+  .cv-experience-item, .cv-education-item { margin-bottom: 1rem; }
+}
+
 /* Bouton télécharger */
 .cv-actions {
   margin-bottom: 20px;
