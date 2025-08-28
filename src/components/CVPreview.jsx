@@ -1,9 +1,21 @@
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaDownload } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaDownload,
+} from "react-icons/fa";
 import html2pdf from "html2pdf.js";
 import "../styles/CVPreview.css";
 
 const CVPreview = ({ data }) => {
-  const { personalInfo = {}, experiences = [], educations = [], skills = [] } = data;
+  const {
+    personalInfo = {},
+    experiences = [],
+    educations = [],
+    skills = [],
+  } = data;
+  const languageSkills = skills.filter((s) => s.category === "language");
+  const nonLanguageSkills = skills.filter((s) => s.category !== "language");
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -22,7 +34,12 @@ const CVPreview = ({ data }) => {
         margin: 0.4,
         filename: `${personalInfo.fullName || "cv"}.pdf`,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          letterRendering: true,
+          scrollY: 0,
+        },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       })
       .from(element)
@@ -39,24 +56,48 @@ const CVPreview = ({ data }) => {
       </div>
 
       <div id="cv-document" className="cv-document">
-        <header className="cv-header">
+        <header
+          className="cv-header"
+          style={{
+            display: "flex",
+            justifyContent: "center", // centre horizontalement
+            alignItems: "center", // centre verticalement
+            flexDirection: "column", // pour que la photo + texte s'empilent
+          }}
+        >
           {personalInfo.photo && (
             <img
               src={personalInfo.photo}
               alt="Photo de profil"
-              style={{ width: 96, height: 96, borderRadius: '50%', objectFit: 'cover', border: '2px solid #004aad', marginBottom: 12 }}
+              style={{
+                width: 96,
+                height: 96,
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "2px solid #004aad",
+                marginBottom: 12,
+              }}
             />
           )}
           <h1 className="cv-name">{personalInfo.fullName || "Votre Nom"}</h1>
           <div className="cv-contact">
             {personalInfo.email && (
-              <div className="contact-item"><FaEnvelope className="contact-icon" />{personalInfo.email}</div>
+              <div className="contact-item">
+                <FaEnvelope className="contact-icon" />
+                {personalInfo.email}
+              </div>
             )}
             {personalInfo.phone && (
-              <div className="contact-item"><FaPhoneAlt className="contact-icon" />{personalInfo.phone}</div>
+              <div className="contact-item">
+                <FaPhoneAlt className="contact-icon" />
+                {personalInfo.phone}
+              </div>
             )}
             {personalInfo.address && (
-              <div className="contact-item"><FaMapMarkerAlt className="contact-icon" />{personalInfo.address}</div>
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" />
+                {personalInfo.address}
+              </div>
             )}
           </div>
         </header>
@@ -75,10 +116,17 @@ const CVPreview = ({ data }) => {
               <div key={index} className="cv-experience-item">
                 <div className="cv-experience-header">
                   <span className="cv-experience-position">{exp.position}</span>
-                  <span className="cv-experience-dates">{formatDate(exp.startDate)} - {exp.current ? "Présent" : formatDate(exp.endDate)}</span>
+                  <span className="cv-experience-dates">
+                    {formatDate(exp.startDate)} -{" "}
+                    {exp.current ? "Présent" : formatDate(exp.endDate)}
+                  </span>
                 </div>
                 <div className="cv-experience-company">{exp.company}</div>
-                {exp.description && <div className="cv-experience-description">{exp.description}</div>}
+                {exp.description && (
+                  <div className="cv-experience-description">
+                    {exp.description}
+                  </div>
+                )}
               </div>
             ))}
           </section>
@@ -90,24 +138,50 @@ const CVPreview = ({ data }) => {
             {educations.map((edu, index) => (
               <div key={index} className="cv-education-item">
                 <div className="cv-education-header">
-                  <span className="cv-education-degree">{edu.degree} {edu.field && `en ${edu.field}`}</span>
-                  <span className="cv-education-dates">{formatDate(edu.startDate)} - {edu.current ? "En cours" : formatDate(edu.endDate)}</span>
+                  <span className="cv-education-degree">
+                    {edu.degree} {edu.field && `en ${edu.field}`}
+                  </span>
+                  <span className="cv-education-dates">
+                    {formatDate(edu.startDate)} -{" "}
+                    {edu.current ? "En cours" : formatDate(edu.endDate)}
+                  </span>
                 </div>
                 <div className="cv-education-school">{edu.school}</div>
-                {edu.description && <div className="cv-education-description">{edu.description}</div>}
+                {edu.description && (
+                  <div className="cv-education-description">
+                    {edu.description}
+                  </div>
+                )}
               </div>
             ))}
           </section>
         )}
 
-        {skills.length > 0 && (
+        {nonLanguageSkills.length > 0 && (
           <section className="cv-section">
             <h2 className="cv-section-title">Compétences</h2>
             <div className="cv-skills">
-              {skills.map((skill, index) => (
+              {nonLanguageSkills.map((skill, index) => (
                 <div key={index} className="cv-skill-item">
                   <span className="cv-skill-name">{skill.name}</span>
-                  <span className="cv-skill-level">{getLevelStars(skill.level)}</span>
+                  <span className="cv-skill-level">
+                    {getLevelStars(skill.level)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+        {languageSkills.length > 0 && (
+          <section className="cv-section">
+            <h2 className="cv-section-title">Langues</h2>
+            <div className="cv-skills">
+              {languageSkills.map((lang, index) => (
+                <div key={index} className="cv-skill-item">
+                  <span className="cv-skill-name">{lang.name}</span>
+                  <span className="cv-skill-level">
+                    {getLevelStars(lang.level)}
+                  </span>
                 </div>
               ))}
             </div>
